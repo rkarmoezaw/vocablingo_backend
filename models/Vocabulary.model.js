@@ -13,7 +13,7 @@ const VocabularySchema = new mongoose.Schema(
     wordForm: {
       type: String,
       required: true,
-      enum: ['Noun' | 'Verb' | 'Adj' | 'Adv' | 'Prep' | 'Conj' | 'Interj' | 'Pron'],
+      enum: ['Noun', 'Verb', 'Adj', 'Adv', 'Prep', 'Conj', 'Interj', 'Pron'],
       default: 'Noun',
     },
     phonetics: String,
