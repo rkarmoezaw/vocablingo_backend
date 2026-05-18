@@ -1,7 +1,6 @@
 import mongoose from 'mongoose';
 
 const SettingsSchema = new mongoose.Schema({
-  userId: { type: String, required: true, unique: true },
   showPhonetics: { type: Boolean, default: true },
   order: {
     type: String,
@@ -10,6 +9,13 @@ const SettingsSchema = new mongoose.Schema({
   },
   onlyDifficult: { type: Boolean, default: false },
   cefrFilter: [String],
+});
+
+SettingsSchema.set('toJSON', {
+  versionKey: false,
+  transform: function (doc, ret) {
+    delete ret._id;
+  },
 });
 
 export default mongoose.model('Settings', SettingsSchema);
